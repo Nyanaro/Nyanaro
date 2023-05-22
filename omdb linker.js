@@ -1,6 +1,6 @@
 // ==UserScript==
 // @name         OMDB linker
-// @namespace    https://twitter.com/siskfh
+// @namespace    https://github.com/Nyanaro
 // @version      7.28
 // @description  Links to OMDB. I made this entirely using chatgpt I don't know how to code.
 // @author       Nyanaro
