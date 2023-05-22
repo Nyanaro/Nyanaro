@@ -1,10 +1,11 @@
 // ==UserScript==
 // @name         OMDB linker
 // @namespace    https://twitter.com/siskfh
-// @version      0.728
+// @version      7.27
 // @description  Links to OMDB. I made this entirely using chatgpt I don't know how to code.
 // @author       Nyanaro
-// @match        https://osu.ppy.sh/beatmapsets/*
+// @include      https://osu.ppy.sh/beatmapsets/*
+// @include      https://old.ppy.sh/s/*
 // @grant        none
 // ==/UserScript==
 
@@ -16,7 +17,7 @@
 
     // Create a button element
     var button = document.createElement('button');
-    button.textContent = 'Go to OMDB Mapset';
+    button.textContent = 'Go to OMDB';
     button.style.position = 'fixed';
     button.style.top = '20px';
     button.style.right = '20px';
@@ -30,19 +31,29 @@
         // Get the current URL
         var currentURL = window.location.href;
 
-        // Extract the IDs from the URL
-        var ids = currentURL.match(/\/(\d+)/g);
+        // Extract the ID from the URL
+        var id = extractID(currentURL);
 
-        // Check if at least one ID is found
-        if (ids && ids.length > 0) {
-            // Extract the first ID
-            var extractedID = ids[0].substring(1);
-
+        // Check if an ID is found
+        if (id) {
             // Build the new URL by appending the extracted ID
-            var newURL = appendURL + extractedID;
+            var newURL = appendURL + id;
 
             // Redirect to the new URL
             window.location.href = newURL;
         }
     });
+
+    // Extract the ID from the URL
+    function extractID(url) {
+        // Match the ID using a regular expression pattern
+        var match = url.match(/\/(\d+)/);
+
+        // Check if a match is found
+        if (match && match.length > 1) {
+            return match[1]; // Return the captured ID
+        }
+
+        return null; // Return null if no ID is found
+    }
 })();
