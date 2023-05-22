@@ -1,7 +1,7 @@
 // ==UserScript==
 // @name         OMDB linker
 // @namespace    https://twitter.com/siskfh
-// @version      7.27
+// @version      7.28
 // @description  Links to OMDB. I made this entirely using chatgpt I don't know how to code.
 // @author       Nyanaro
 // @include      https://osu.ppy.sh/beatmapsets/*
@@ -15,13 +15,13 @@
     // Get the URL you want to append the cut section to
     var appendURL = 'https://omdb.nyahh.net/mapset/';
 
-    // Create a button element
-    var button = document.createElement('button');
-    button.textContent = 'Go to OMDB';
-    button.style.position = 'fixed';
-    button.style.top = '20px';
-    button.style.right = '20px';
-    button.style.zIndex = '9999';
+// Create a button element
+var button = document.createElement('button');
+button.textContent = 'Go to OMDB';
+button.style.position = 'fixed';
+button.style.top = 'calc(8.33% + 20px)'; // Adjust the percentage value as needed
+button.style.right = '20px';
+button.style.zIndex = '9999';
 
     // Append the button to the document body
     document.body.appendChild(button);
